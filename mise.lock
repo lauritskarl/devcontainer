@@ -2,6 +2,14 @@
 version = "1.2.19"
 backend = "core:bun"
 
+[tools.node]
+version = "24.5.0"
+backend = "core:node"
+
 [tools."npm:@devcontainers/cli"]
 version = "0.80.0"
 backend = "npm:@devcontainers/cli"
+
+[tools."npm:tombi"]
+version = "0.4.41"
+backend = "npm:tombi"

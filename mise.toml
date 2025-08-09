@@ -5,14 +5,28 @@ lockfile = true
 [settings.npm]
 bun = true
 
+[tools]
+bun = "latest"
+node = "latest"
+"npm:@devcontainers/cli" = "latest"
+"npm:tombi" = "latest"
+
 [env]
 _.file = ".env"
 CONTAINER_ENGINE = "docker"
 IMAGE_URL = "ghcr.io/lauritskarl/devcontainer:latest"
 
-[tools]
-bun = "latest"
-"npm:@devcontainers/cli" = "latest"
+[tasks.tombi-lint]
+description = "Lint TOML Files"
+run = "tombi lint ."
+
+[tasks.tombi-format]
+description = "Format TOML Files"
+run = "tombi format ."
+
+[tasks.lint]
+description = "Lint Project Files"
+depends = ["tombi-lint", "tombi-format"]
 
 [tasks.set-secrets]
 description = "Save Devcontainer Secrets To .env"
