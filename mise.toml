@@ -28,13 +28,6 @@ run = "tombi format ."
 description = "Lint Project Files"
 depends = ["tombi-lint", "tombi-format"]
 
-[tasks.set-secrets]
-description = "Save Devcontainer Secrets To .env"
-run = """
-read -s -p 'DEVCONTAINER_GITHUB_TOKEN: ' DEVCONTAINER_GITHUB_TOKEN && \
-echo "DEVCONTAINER_GITHUB_TOKEN=$DEVCONTAINER_GITHUB_TOKEN" > ./.env
-"""
-
 [tasks.push-secrets]
 description = "Push Devcontainer Secrets To GitHub"
 run = "gh secret set --env-file .env"
