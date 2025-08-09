@@ -11,8 +11,8 @@ CONTAINER_ENGINE = "docker"
 IMAGE_URL = "ghcr.io/lauritskarl/devcontainer:latest"
 
 [tools]
-bun = "1.2.19"
-"npm:@devcontainers/cli" = "0.80.0"
+bun = "latest"
+"npm:@devcontainers/cli" = "latest"
 
 [tasks.set-secrets]
 description = "Save Devcontainer Secrets To .env"
