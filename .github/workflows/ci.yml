@@ -1,4 +1,4 @@
-name: Run CI Tasks
+name: "Run CI Tasks"
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
     - cron: "0 5 * * *"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: "${{ github.workflow }}-${{ github.ref }}"
   cancel-in-progress: false
 
 env:
@@ -18,10 +18,10 @@ env:
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
-      - run: mise run ci
+      - uses: "actions/checkout@v4"
+      - uses: "jdx/mise-action@v2"
+      - run: "mise run ci"
         env:
-          DEVCONTAINER_GITHUB_TOKEN: ${{ secrets.DEVCONTAINER_GITHUB_TOKEN }}
+          DEVCONTAINER_GITHUB_TOKEN: "${{ secrets.DEVCONTAINER_GITHUB_TOKEN }}"
