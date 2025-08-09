@@ -1,0 +1,45 @@
+[settings]
+experimental = true
+lockfile = true
+
+[settings.npm]
+bun = true
+
+[env]
+_.file = ".env"
+CONTAINER_ENGINE = "docker"
+IMAGE_URL = "ghcr.io/lauritskarl/devcontainer:latest"
+
+[tools]
+bun = "1.2.19"
+"npm:@devcontainers/cli" = "0.80.0"
+
+[tasks.set-secrets]
+description = "Save Devcontainer Secrets To .env"
+run = """
+read -s -p 'DEVCONTAINER_GITHUB_TOKEN: ' DEVCONTAINER_GITHUB_TOKEN && \
+echo "DEVCONTAINER_GITHUB_TOKEN=$DEVCONTAINER_GITHUB_TOKEN" > ./.env
+"""
+
+[tasks.push-secrets]
+description = "Push Devcontainer Secrets To GitHub"
+run = "gh secret set --env-file .env"
+
+[tasks.login]
+description = "Login To GitHub Registry"
+run = "echo $DEVCONTAINER_GITHUB_TOKEN | $CONTAINER_ENGINE login ghcr.io --username lauritskarl --password-stdin"
+
+[tasks.build]
+description = "Build Devcontainer Image"
+depends = ["login"]
+run = """
+devcontainer build \
+--workspace-folder . \
+--config ./devcontainer.json \
+--image-name $IMAGE_URL \
+--push
+"""
+
+[tasks.ci]
+description = "Run Devcontainer CI Tasks"
+depends = ["login", "build"]

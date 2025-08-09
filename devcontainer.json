@@ -1,0 +1,10 @@
+{
+  "name": "Base Development Container",
+  "build": {
+    "dockerfile": "Containerfile",
+    "args": {
+      "USERNAME": "karl",
+    }
+  },
+  "init": true
+}
