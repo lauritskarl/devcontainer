@@ -3,7 +3,7 @@
   "build": {
     "dockerfile": "Containerfile",
     "args": {
-      "USERNAME": "karl",
+      "USERNAME": "karl"
     }
   },
   "init": true
