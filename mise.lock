@@ -1,15 +1,24 @@
 [tools.bun]
-version = "1.2.19"
+version = "1.2.20"
 backend = "core:bun"
 
+[tools.bun.platforms.macos-arm64]
+checksum = "blake3:d5f7acc00f0fefc647a50cdfce5a0a20a311ca61f82709d60ae1d627e40b2573"
+size = 21788202
+
 [tools.node]
-version = "24.5.0"
+version = "24.6.0"
 backend = "core:node"
+
+[tools.node.platforms.macos-arm64]
+checksum = "sha256:768f14952403e3025fed8e2887500dfa63eeb55628a9b203e4b8ebb0fb09c7eb"
+size = 51024329
+url = "https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-arm64.tar.gz"
 
 [tools."npm:@devcontainers/cli"]
 version = "0.80.0"
 backend = "npm:@devcontainers/cli"
 
 [tools."npm:tombi"]
-version = "0.5.2"
+version = "0.5.5"
 backend = "npm:tombi"
