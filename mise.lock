@@ -20,5 +20,5 @@ version = "0.80.0"
 backend = "npm:@devcontainers/cli"
 
 [tools."npm:tombi"]
-version = "0.5.6"
+version = "0.5.10"
 backend = "npm:tombi"
