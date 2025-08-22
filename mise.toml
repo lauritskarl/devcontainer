@@ -6,15 +6,21 @@ lockfile = true
 bun = true
 
 [tools]
+age = "latest"
 bun = "latest"
 node = "latest"
 "npm:@devcontainers/cli" = "latest"
 "npm:tombi" = "latest"
+sops = "latest"
 
 [env]
 _.file = ".env"
 CONTAINER_ENGINE = "docker"
 IMAGE_URL = "ghcr.io/lauritskarl/devcontainer:latest"
+
+[tasks.sops-init]
+description = "Initialize encrypted sops secrets"
+run = "sops decrypt devcontainer.enc.env > .env"
 
 [tasks.tombi-lint]
 description = "Lint TOML Files"

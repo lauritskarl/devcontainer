@@ -22,6 +22,7 @@ jobs:
     steps:
       - uses: "actions/checkout@v4"
       - uses: "jdx/mise-action@v2"
-      - run: "mise run ci"
+      - run: "mise run sops-init"
         env:
-          DEVCONTAINER_GITHUB_TOKEN: "${{ secrets.DEVCONTAINER_GITHUB_TOKEN }}"
+          SOPS_AGE_KEY: "${{ secrets.SOPS_AGE_KEY }}"
+      - run: "mise run ci"
