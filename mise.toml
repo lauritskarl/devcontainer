@@ -8,8 +8,12 @@ bun = true
 [tools]
 age = "latest"
 bun = "latest"
+marksman = "latest"
 node = "latest"
 "npm:@devcontainers/cli" = "latest"
+"npm:@markdoc/language-server" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:markdoc-ls" = "latest"
 "npm:tombi" = "latest"
 sops = "latest"
 
