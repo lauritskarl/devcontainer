@@ -15,6 +15,7 @@ node = "latest"
 "npm:bash-language-server" = "latest"
 "npm:markdoc-ls" = "latest"
 "npm:tombi" = "latest"
+"npm:yaml-language-server" = "latest"
 sops = "latest"
 
 [env]
