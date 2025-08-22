@@ -34,13 +34,9 @@ run = "tombi format ."
 description = "Lint Project Files"
 depends = ["tombi-lint", "tombi-format"]
 
-[tasks.push-secrets]
-description = "Push Devcontainer Secrets To GitHub"
-run = "gh secret set --env-file .env"
-
 [tasks.login]
 description = "Login To GitHub Registry"
-run = "echo $DEVCONTAINER_GITHUB_TOKEN | $CONTAINER_ENGINE login ghcr.io --username lauritskarl --password-stdin"
+run = "echo $GITHUB_TOKEN | $CONTAINER_ENGINE login ghcr.io --username lauritskarl --password-stdin"
 
 [tasks.build]
 description = "Build Devcontainer Image"
